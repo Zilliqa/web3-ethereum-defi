@@ -393,7 +393,7 @@ test = ["pytest (==3.0.7)", "hypothesis (==3.7.0)", "tox (==2.6.0)"]
 
 [[package]]
 name = "eth-hash"
-version = "0.3.2"
+version = "0.3.3"
 description = "eth-hash: The Ethereum hashing function, keccak256, sometimes (erroneously) called sha3"
 category = "main"
 optional = false
@@ -527,6 +527,14 @@ test = ["hypothesis (>=4.43.0,<5.0.0)", "pytest (==5.4.1)", "pytest-xdist", "tox
 name = "executing"
 version = "0.8.3"
 description = "Get the currently executing AST node of a frame, and other information"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "fastecdsa"
+version = "2.2.3"
+description = "Fast elliptic curve digital signatures"
 category = "main"
 optional = false
 python-versions = "*"
@@ -857,6 +865,14 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
+
+[[package]]
+name = "jsonrpcclient"
+version = "4.0.2"
+description = "Send JSON-RPC requests"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "jsonschema"
@@ -1615,6 +1631,23 @@ optional = true
 python-versions = ">=3.7"
 
 [[package]]
+name = "pyzil"
+version = "1.5.22"
+description = "Zilliqa Python API"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+eth-hash = {version = "*", extras = ["pycryptodome"]}
+fastecdsa = "*"
+jsonrpcclient = "*"
+protobuf = "*"
+pycryptodome = "*"
+pyethash = "*"
+requests = "*"
+
+[[package]]
 name = "pyzmq"
 version = "23.1.0"
 description = "Python bindings for 0MQ"
@@ -2215,7 +2248,7 @@ docs = ["Sphinx", "sphinx-rtd-theme", "sphinx-sitemap", "sphinx-autodoc-typehint
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3a7207191a1841ddac548f31226bfb6a2e23de7f93e5a8963cc45a18bb41937d"
+content-hash = "9465f618769b480175bcc6850df4f59b3136ad19e910f9c250866e2419ae40bd"
 
 [metadata.files]
 aiohttp = [
@@ -2594,8 +2627,8 @@ eth-bloom = [
     {file = "eth_bloom-1.0.4-py3-none-any.whl", hash = "sha256:5d6d28fa60ee1e25436c45b9593798d7e193224b364ea1a212050055dfa1942c"},
 ]
 eth-hash = [
-    {file = "eth-hash-0.3.2.tar.gz", hash = "sha256:3f40cecd5ead88184aa9550afc19d057f103728108c5102f592f8415949b5a76"},
-    {file = "eth_hash-0.3.2-py3-none-any.whl", hash = "sha256:de7385148a8e0237ba1240cddbc06d53f56731140f8593bdb8429306f6b42271"},
+    {file = "eth-hash-0.3.3.tar.gz", hash = "sha256:8cde211519ff1a98b46e9057cb909f12ab62e263eb30a0a94e2f7e1f46ac67a0"},
+    {file = "eth_hash-0.3.3-py3-none-any.whl", hash = "sha256:3c884e4f788b38cc92cff05c4e43bc6b82686066f04ecfae0e11cdcbe5a283bd"},
 ]
 eth-keyfile = [
     {file = "eth-keyfile-0.5.1.tar.gz", hash = "sha256:939540efb503380bc30d926833e6a12b22c6750de80feef3720d79e5a79de47d"},
@@ -2624,6 +2657,14 @@ eth-utils = [
 executing = [
     {file = "executing-0.8.3-py2.py3-none-any.whl", hash = "sha256:d1eef132db1b83649a3905ca6dd8897f71ac6f8cac79a7e58a1a09cf137546c9"},
     {file = "executing-0.8.3.tar.gz", hash = "sha256:c6554e21c6b060590a6d3be4b82fb78f8f0194d809de5ea7df1c093763311501"},
+]
+fastecdsa = [
+    {file = "fastecdsa-2.2.3-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:c1f27c5b37aee4bafa8ee304f6da3382ba90200a6998764b3cedba506ef03ff5"},
+    {file = "fastecdsa-2.2.3-cp36-cp36m-macosx_11_0_x86_64.whl", hash = "sha256:05676e917fea8d56f15a7f00c81560d9a6be83767435dca17cc2a62741276656"},
+    {file = "fastecdsa-2.2.3-cp37-cp37m-macosx_11_0_x86_64.whl", hash = "sha256:0cb1ecbd63a7898a616e1fe5bd5fe164b7a3db764a98886c6eafc226efc19477"},
+    {file = "fastecdsa-2.2.3-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:943aac1b35633a0ffea1bfe1509ec0fa35095a8021a85d3a5c323fe90e2a6038"},
+    {file = "fastecdsa-2.2.3-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:376af4d45ae82a2e9c25f0a0d9b50c7d63ba881e273ab69db184a0493c688619"},
+    {file = "fastecdsa-2.2.3.tar.gz", hash = "sha256:269bdb0f618b38f8f6aec9d23d23db518046c3cee01a954fa6aa7322a1a7db8f"},
 ]
 fastjsonschema = [
     {file = "fastjsonschema-2.15.3-py3-none-any.whl", hash = "sha256:ddb0b1d8243e6e3abb822bd14e447a89f4ab7439342912d590444831fa00b6a0"},
@@ -2768,6 +2809,9 @@ jedi = [
 jinja2 = [
     {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
     {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
+]
+jsonrpcclient = [
+    {file = "jsonrpcclient-4.0.2.tar.gz", hash = "sha256:c0d475494b3e1b591ecdee7883739accaf5695edb673f16b7383b8c6bbdb1ca3"},
 ]
 jsonschema = [
     {file = "jsonschema-4.6.0-py3-none-any.whl", hash = "sha256:1c92d2db1900b668201f1797887d66453ab1fbfea51df8e4b46236689c427baf"},
@@ -3391,6 +3435,10 @@ pywinpty = [
     {file = "pywinpty-2.0.5-cp38-none-win_amd64.whl", hash = "sha256:651ee1467bd7eb6f64d44dbc954b7ab7d15ab6d8adacc4e13299692c67c5d5d2"},
     {file = "pywinpty-2.0.5-cp39-none-win_amd64.whl", hash = "sha256:e59a508ae78374febada3e53b5bbc90b5ad07ae68cbfd72a2e965f9793ae04f3"},
     {file = "pywinpty-2.0.5.tar.gz", hash = "sha256:e125d3f1804d8804952b13e33604ad2ca8b9b2cac92b27b521c005d1604794f8"},
+]
+pyzil = [
+    {file = "pyzil-1.5.22-py3-none-any.whl", hash = "sha256:ef83dc61403f8c7c4f59179b081c478d1121ebabe43f96c3f9632e79845ad57e"},
+    {file = "pyzil-1.5.22.tar.gz", hash = "sha256:5825fe46322f51711d5499cccdd5778121040d4ea5162829893a9944e3f091e5"},
 ]
 pyzmq = [
     {file = "pyzmq-23.1.0-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:6d346e551fa64b89d57a4ac74b9bc66703413f02f50093e089e861999ec5cccc"},

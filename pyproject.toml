@@ -31,6 +31,7 @@ jupyter = {version = "^1.0.0", optional = true}
 matplotlib = {version = "^3.5.2", optional = true}
 plotly = {version = "^5.8.2", optional = true}
 furo = {version = "^2022.6.4.1", optional = true}
+pyzil = "^1.5.22"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
